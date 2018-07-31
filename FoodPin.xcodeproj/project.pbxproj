@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18D2CD3821101C0E007E283C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D2CD3621101C0E007E283C /* Crashlytics.framework */; };
+		18D2CD3921101C0E007E283C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D2CD3721101C0E007E283C /* Fabric.framework */; };
 		18F746E220C3AE75008E304B /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F746E020C3AE75008E304B /* About.storyboard */; };
 		F401D3061F6E5F3E0046CB51 /* RestaurantDetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401D3051F6E5F3E0046CB51 /* RestaurantDetailMapCell.swift */; };
 		F401D3081F6EDBFA0046CB51 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401D3071F6EDBFA0046CB51 /* MapViewController.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18D2CD3621101C0E007E283C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		18D2CD3721101C0E007E283C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		18F746E120C3AE75008E304B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodPin/Storyboard/Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		F401D3051F6E5F3E0046CB51 /* RestaurantDetailMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailMapCell.swift; sourceTree = "<group>"; };
 		F401D3071F6EDBFA0046CB51 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -92,13 +96,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D2CD3821101C0E007E283C /* Crashlytics.framework in Frameworks */,
 				F42DF0991F6BDD850078DA7D /* MapKit.framework in Frameworks */,
+				18D2CD3921101C0E007E283C /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18D2CD3521101BED007E283C /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				18D2CD3621101C0E007E283C /* Crashlytics.framework */,
+				18D2CD3721101C0E007E283C /* Fabric.framework */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
 		F40BFF931F68EA4C00A6209F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +199,7 @@
 		F4BD89C51F4E961C00588D6D /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				18D2CD3521101BED007E283C /* SDK */,
 				F40BFF931F68EA4C00A6209F /* Extensions */,
 				F4D680331F615643008AA4F1 /* Resources */,
 				F4A058701F59579200D6288C /* Storyboard */,
@@ -234,6 +250,7 @@
 				F4BD89BF1F4E961C00588D6D /* Sources */,
 				F4BD89C01F4E961C00588D6D /* Frameworks */,
 				F4BD89C11F4E961C00588D6D /* Resources */,
+				186CEA4B21101AC100DDC5E4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -307,6 +324,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		186CEA4B21101AC100DDC5E4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 690f8c5b90e349c6395a17e9956bfdfa468d54b2 b0d43839f02f35456655acf9f136ebb310dadc146665971bb2e329ee4626a9b8";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F4BD89BF1F4E961C00588D6D /* Sources */ = {
@@ -397,7 +430,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -478,7 +511,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YZP52RND5S;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FoodPin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.FoodPin;
@@ -493,7 +530,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YZP52RND5S;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FoodPin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.FoodPin;
